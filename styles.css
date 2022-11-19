@@ -64,6 +64,15 @@ p{
     line-height: 2rem;
     display: none;
 }
+.circle{
+    position: absolute;
+    border: solid 1px black;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: -1;
+    mix-blend-mode: screen;
+}
 
 .card.active p{
     display: block;
