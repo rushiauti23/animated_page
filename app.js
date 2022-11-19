@@ -1,7 +1,31 @@
-gsap.registerPlugin(Flip);
+jQuery(document).ready(function(){
 
+    var mouseX = 0, mouseY = 0;
+    var xp =0, yp =0;
+
+    $(document).mousemove(function(e){
+        mouseX = e.pageX-30;
+        mouseY = e.pageY-30;
+    });
+    setInterval(function(){
+        xp += ((mouseX - xp)/6);
+        yp += ((mouseY - yp)/6);
+        $("#circle").css({left: xp+'px', top:yp+'px'});
+    });
+
+});
+
+gsap.registerPlugin(Flip);
+const tl = gsap.timeline()
 const links = document.querySelectorAll(".nav-item a");
 const activenav = document.querySelector(".active-nav");
+
+tl.fromTo(".nav-link", {opacity: 0}, {opacity: 1, duration: 1});
+
+
+tl.fromTo(".card", {opacity: 0}, {opacity: 1, duration: 5}, "-=1");
+
+
 
 links.forEach(link =>{
     link.addEventListener("click", () => {
